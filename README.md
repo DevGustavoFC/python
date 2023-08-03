@@ -4,4 +4,5 @@ Não espere encontrar conteúdos tão relevantes, abaixo uma lista de conteúdos
 
 👨‍💻 *"Um trabalho não prazeroso é sinônimo de escravidão contemporânea."*
 
-- A
+- calculadora.py // Calculadora convencional (+/-/%/x) com adição, probabilidade e média aritmética
+
