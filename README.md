@@ -9,3 +9,6 @@ Não espere encontrar conteúdos tão relevantes, abaixo uma lista de conteúdos
 
 ### Básico-Intermediário
 1. Sistema Bancário v2
+
+### Histórico:
+- O sistema bancário v1 teve sua estrutura aprimorada, sendo assim, a utilização de funções e listas foram estabelecidas.
