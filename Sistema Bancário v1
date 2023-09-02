@@ -1,4 +1,9 @@
-# Inicialização das variáveis
+'''
+ESTA SIMUALAÇÃO DE SISTEMA BANCÁRIO, ESTÁ NA VERSÃO 1.
+'''
+
+
+# Variáveis
 saldo = 0.0
 saques_realizados = []
 depositos_realizados = []
