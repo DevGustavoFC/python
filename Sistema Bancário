@@ -1,0 +1,60 @@
+# Inicialização das variáveis
+saldo = 0.0
+saques_realizados = []
+depositos_realizados = []
+
+# Loop principal
+while True:
+    # Menu de opções
+    print("Escolha uma opção:")
+    print("1 - Depositar")
+    print("2 - Sacar")
+    print("3 - Visualizar Extrato")
+    print("4 - Sair")
+    
+    # Leitura da opção do usuário
+    opcao = input("Opção: ")
+    
+    # Opção 1: Depositar
+    if opcao == '1':
+        valor_deposito = float(input("Informe o valor a ser depositado: "))
+        if valor_deposito > 0:
+            saldo += valor_deposito
+            depositos_realizados.append(valor_deposito)
+            print(f"Depósito de R$ {valor_deposito:.2f} realizado com sucesso.")
+        else:
+            print("Valor de depósito inválido.")
+    
+    # Opção 2: Sacar
+    elif opcao == '2':
+        if len(saques_realizados) >= 3:
+            print("Limite de saques diários atingido.")
+        else:
+            valor_saque = float(input("Informe o valor a ser sacado: "))
+            if valor_saque > 0:
+                if saldo >= valor_saque <= 500:
+                    saldo -= valor_saque
+                    saques_realizados.append(valor_saque)
+                    print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso.")
+                else:
+                    print("Saldo insuficiente para o saque ou valor de saque excede o limite diário.")
+            else:
+                print("Valor de saque inválido.")
+    
+    # Opção 3: Visualizar Extrato
+    elif opcao == '3':
+        print("Extrato:")
+        for deposito in depositos_realizados:
+            print(f"Depósito: R$ {deposito:.2f}")
+        for saque in saques_realizados:
+            print(f"Saque: R$ {saque:.2f}")
+        print(f"Saldo Atual: R$ {saldo:.2f}")
+        if not depositos_realizados and not saques_realizados:
+            print("Não foram realizadas movimentações.")
+    
+    # Opção 4: Sair
+    elif opcao == '4':
+        break
+    
+    else:
+        print("Opção inválida. Tente novamente.")
