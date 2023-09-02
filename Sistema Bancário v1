@@ -1,12 +1,42 @@
 '''
-ESTA SIMUALAÇÃO DE SISTEMA BANCÁRIO, ESTÁ NA VERSÃO 1.
+ESTA SIMUALAÇÃO DE SISTEMA BANCÁRIO, ESTÁ NA VERSÃO 2.
 '''
-
 
 # Variáveis
 saldo = 0.0
 saques_realizados = []
 depositos_realizados = []
+
+# Função depósito
+def depositar(valor):
+    global saldo
+    saldo += valor
+    depositos_realizados.append(valor)
+    print(f"Depósito de R$ {valor:.2f} realizado com sucesso.")
+
+# Função saque
+def sacar(valor):
+    global saldo
+    if len(saques_realizados) >= 3:
+        print("Limite de saques diários atingido.")
+    else:
+        if saldo >= valor <= 500:
+            saldo -= valor
+            saques_realizados.append(valor)
+            print(f"Saque de R$ {valor:.2f} realizado com sucesso.")
+        else:
+            print("Saldo insuficiente para o saque ou valor de saque excede o limite diário.")
+
+# Função extrato
+def extrato():
+    print("Extrato:")
+    for deposito in depositos_realizados:
+        print(f"Depósito: R$ {deposito:.2f}")
+    for saque in saques_realizados:
+        print(f"Saque: R$ {saque:.2f}")
+    print(f"Saldo Atual: R$ {saldo:.2f}")
+    if not depositos_realizados and not saques_realizados:
+        print("Não foram realizadas movimentações.")
 
 # Loop principal
 while True:
@@ -17,45 +47,28 @@ while True:
     print("3 - Visualizar Extrato")
     print("4 - Sair")
     
-    # Leitura da opção do usuário
+    # Leitura Menu
     opcao = input("Opção: ")
     
     # Opção 1: Depositar
     if opcao == '1':
         valor_deposito = float(input("Informe o valor a ser depositado: "))
         if valor_deposito > 0:
-            saldo += valor_deposito
-            depositos_realizados.append(valor_deposito)
-            print(f"Depósito de R$ {valor_deposito:.2f} realizado com sucesso.")
+            depositar(valor_deposito)
         else:
             print("Valor de depósito inválido.")
     
     # Opção 2: Sacar
     elif opcao == '2':
-        if len(saques_realizados) >= 3:
-            print("Limite de saques diários atingido.")
+        valor_saque = float(input("Informe o valor a ser sacado: "))
+        if valor_saque > 0:
+            sacar(valor_saque)
         else:
-            valor_saque = float(input("Informe o valor a ser sacado: "))
-            if valor_saque > 0:
-                if saldo >= valor_saque <= 500:
-                    saldo -= valor_saque
-                    saques_realizados.append(valor_saque)
-                    print(f"Saque de R$ {valor_saque:.2f} realizado com sucesso.")
-                else:
-                    print("Saldo insuficiente para o saque ou valor de saque excede o limite diário.")
-            else:
-                print("Valor de saque inválido.")
+            print("Valor de saque inválido.")
     
-    # Opção 3: Visualizar Extrato
+    # Opção 3: Extrato
     elif opcao == '3':
-        print("Extrato:")
-        for deposito in depositos_realizados:
-            print(f"Depósito: R$ {deposito:.2f}")
-        for saque in saques_realizados:
-            print(f"Saque: R$ {saque:.2f}")
-        print(f"Saldo Atual: R$ {saldo:.2f}")
-        if not depositos_realizados and not saques_realizados:
-            print("Não foram realizadas movimentações.")
+        extrato()
     
     # Opção 4: Sair
     elif opcao == '4':
