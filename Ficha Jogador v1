@@ -1,0 +1,66 @@
+nome = str()
+exp = float()
+ranque = str()
+
+def criar_novo():
+    print("\n\nBacana, bom, como deseja continuar?\n1- Criar novo personagem\n2- Sair")
+
+def exp_status():
+    if exp <= 1.000:
+        ranque = "Ferro"
+        print("Você é um aventureiro de nível:", ranque)
+    elif 1.001 <= exp <= 2.000:
+        ranque = "Bronze"
+        print("Você é um aventureiro de nível:", ranque)
+    elif 2.001 <= exp <= 5.000:
+        ranque = "Prata-Ouro"
+        print("Você é um aventureiro de nível:", ranque)
+    elif 5.001 <= exp <= 8.000:
+        ranque = "Platina-Diamante"
+        print("Você é um aventureiro de nível:", ranque)
+    elif 8.001 <= exp <= 9.000:
+        ranque = "Ascendente"
+        print("Você é um aventureiro de nível:", ranque)
+    elif 9.001 <= exp <= 10.000:
+        ranque = "Imortal"
+        print("Você é um aventureiro de nível:", ranque)
+    elif exp >= 10.001:
+        ranque = "Radiante"
+        print("Você é um aventureiro de nível:", ranque)
+    else:
+        print("Erro, não foi possível contabilizar seu EXP.")
+
+    return ranque
+
+
+print("\n\nBEM-VINDO AO DESAFIO DO HERÓI\n\n"
+      "Vamos criar um aventureiro para você!\n")
+print("=====CRIAÇÃO DO HERÓI=====")
+nome = input("Digite seu nome: ")
+exp = float(input("Digite seu EXP: "))
+ranque = exp_status()
+
+print("=====PAINEL DO HERÓI=====")
+print("Nome:", nome)
+print("EXP/Ranque:", exp, "/", ranque)
+
+while True:
+    criar_novo()
+    
+    opcao = input("Escolha uma opção: ")
+    
+    if opcao == '1':
+        print("=====CRIAÇÃO DO HERÓI=====")
+        nome = input("Digite seu nome: ")
+        exp = float(input("Digite seu EXP: "))
+        ranque = exp_status()
+      
+        print("=====PAINEL DO HERÓI=====")
+        print("Nome:", nome)
+        print("EXP/Ranque:", exp, "/", ranque)
+    elif opcao == '2':
+        print("Saindo do programa. Até mais!")
+        break
+    else:
+        print("Opção inválida. Por favor, escolha 1 para criar personagem ou 2 para sair.")
+
