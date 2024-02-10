@@ -7,6 +7,7 @@ Não espere encontrar conteúdos tão relevantes, abaixo uma lista de conteúdos
 ### Introdutório
 1. Calculadora Aritmética, Probabilidade e Média
 2. Protótipo de Ficha de Jogador (Sem banco de dados)
+3. Calculadora de Ranqueamento (para jogos)
 
 ### Básico-Intermediário
 1. Sistema Bancário v2
